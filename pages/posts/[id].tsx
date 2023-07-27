@@ -3,8 +3,9 @@ import Layout from "../../components/Layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Date from "../../components/Date";
 import utilStyles from '../../styles/utils.module.css';
+import { GetStaticProps, GetStaticPaths } from 'next'
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
     // Gets all the paths (post ids) in posts folder
     const paths = getAllPostIds();
     return {
@@ -13,9 +14,9 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
     // Gets the data from the given id (from the file name [id].js), auto passes as postData prop
-    const postData = await getPostData(params.id);
+    const postData = await getPostData(params?.id as string);
     return {
         props: {
             postData,
@@ -23,7 +24,13 @@ export async function getStaticProps({ params }) {
     };
 }
 
-export default function Post({ postData }) {
+export default function Post({ postData }: {
+    postData: {
+        title: string
+        date: string
+        contentHtml: string
+    }
+}) {
     // postData members given from getPostData which uses Matter to read metadata
     return (
         <Layout>
