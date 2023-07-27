@@ -5,6 +5,7 @@ import Date from "../../components/date";
 import utilStyles from '../../styles/utils.module.css';
 
 export async function getStaticPaths() {
+    // Gets all the paths (post ids) in posts folder
     const paths = getAllPostIds();
     return {
         paths,
@@ -13,6 +14,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+    // Gets the data from the given id (from the file name [id].js), auto passes as postData prop
     const postData = await getPostData(params.id);
     return {
         props: {
@@ -22,6 +24,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post({ postData }) {
+    // postData members given from getPostData which uses Matter to read metadata
     return (
         <Layout>
             <Head>
