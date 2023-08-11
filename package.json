@@ -9,7 +9,7 @@
   "dependencies": {
     "date-fns": "^2.30.0",
     "gray-matter": "^4.0.3",
-    "next": "latest",
+    "next": "^13.4.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "remark": "^14.0.3",
@@ -18,11 +18,10 @@
   "devDependencies": {
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",
-    "@typescript-eslint/eslint-plugin": "^6.2.0",
-    "@typescript-eslint/parser": "^6.2.0",
-    "eslint": "^8.45.0",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
+    "eslint": "^8.46.0",
     "eslint-config-next": "13.4.12",
-    "eslint-plugin-react": "^7.33.0",
-    "typescript": "5.1.6"
+    "eslint-plugin-react": "^7.33.1"
   }
 }
